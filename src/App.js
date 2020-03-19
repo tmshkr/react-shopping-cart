@@ -17,10 +17,14 @@ function App() {
   const addItem = item => {
     setCart([...cart, item]);
   };
+  const removeItem = id => {
+    const filtered = cart.filter(item => item.id !== id);
+    setCart(filtered);
+  };
 
   return (
-    <ProductContext.Provider value={{ products, addItem }}>
-      <CartContext.Provider value={cart}>
+    <ProductContext.Provider value={products}>
+      <CartContext.Provider value={{ cart, addItem, removeItem }}>
         <div className="App">
           <Navigation />
 
