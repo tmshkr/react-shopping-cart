@@ -18,9 +18,10 @@ function App() {
   const addItem = item => {
     setCart([...cart, item]);
   };
-  const removeItem = id => {
-    const filtered = cart.filter(item => item.id !== id);
-    setCart(filtered);
+  const removeItem = index => {
+    const copy = [...cart];
+    copy.splice(index, 1);
+    setCart(copy);
   };
 
   return (
